@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 
 const categories = [
   'Wedding',
@@ -13,10 +14,15 @@ const categories = [
 export default function Hero() {
   return (
     <section className="relative">
-      <div className="absolute inset-0 pointer-events-none" aria-hidden>
-        <div className="absolute -top-20 right-10 h-64 w-64 rounded-full opacity-20" style={{ background: 'radial-gradient(closest-side, rgba(209,178,128,0.25), rgba(209,178,128,0))' }} />
+      {/* Spline full-width cover background */}
+      <div className="relative h-[460px] md:h-[520px] w-full">
+        <Spline scene="https://prod.spline.design/cEecEwR6Ehj4iT8T/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        {/* Soft ivory/white scrim to keep palette consistent and ensure text contrast */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/85 via-[#FAF9F0]/92 to-[#FAF9F0]" />
       </div>
-      <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
+
+      {/* Hero content card overlapping the cover */}
+      <div className="mx-auto max-w-6xl px-4 -mt-20 md:-mt-24 pb-6">
         <div className="rounded-2xl md:rounded-3xl p-6 md:p-10 bg-gradient-to-b from-[#FAF9F0] to-white border border-[#E5E5E5] shadow-sm">
           <h1 className="text-[#2F2F2F] text-3xl md:text-5xl leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
             Plan Sri Lankan events with elegance

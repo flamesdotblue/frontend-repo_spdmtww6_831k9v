@@ -1,4 +1,4 @@
-import { Star, Shield, CheckCircle } from 'lucide-react';
+import { Star, Shield, CheckCircle, ArrowRight, Sparkles } from 'lucide-react';
 
 const popularCategories = [
   {
@@ -40,9 +40,30 @@ const vendors = [
   },
 ];
 
+const testimonials = [
+  {
+    quote:
+      'Our kovil wedding in Nallur was seamless. Every vendor was responsive and professional — pure Northern hospitality.',
+    name: 'Anushka & Ramesh',
+    role: 'Jaffna',
+  },
+  {
+    quote:
+      'Booked caterers for a 300-guest reception — authentic Jaffna flavors with such elegance. Guests still talk about it!',
+    name: 'Tharmini',
+    role: 'Toronto → Jaffna destination',
+  },
+  {
+    quote:
+      'Found a beachfront venue and a traditional decor team within a day. The quote flow was simple and clear.',
+    name: 'Sanjay',
+    role: 'Point Pedro',
+  },
+];
+
 export default function HomeSections() {
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-24">
+    <div className="mx-auto max-w-6xl px-4 pb-28">
       {/* Popular Categories */}
       <section className="mt-4">
         <h2 className="text-[#2F2F2F] text-2xl md:text-3xl mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>Popular categories</h2>
@@ -89,29 +110,70 @@ export default function HomeSections() {
         </div>
       </section>
 
-      {/* Trust banner */}
+      {/* Color partition band (subtle gold gradient) */}
       <section className="mt-12">
-        <div className="rounded-2xl md:rounded-3xl border border-[#E5E5E5] bg-gradient-to-b from-[#FAF9F0] to-white p-5 md:p-7 flex flex-col md:flex-row items-center justify-between gap-5">
-          <div className="flex items-center gap-3">
-            <Shield className="text-[#2F2F2F]" />
-            <div>
-              <p className="text-[#2F2F2F] font-medium">Verified vendors</p>
-              <p className="text-[#6C6C6C] text-sm">Profiles screened for quality & reliability</p>
+        <div className="rounded-2xl border border-[#E5E5E5] bg-gradient-to-b from-[#E7D7B3] to-[#D1B280] p-6 md:p-8 shadow-sm">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div className="flex items-start gap-3">
+              <Sparkles className="text-[#2F2F2F]" />
+              <div>
+                <h3 className="text-[#2F2F2F] text-xl md:text-2xl" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  Plan with confidence
+                </h3>
+                <p className="text-[#2F2F2F]/90">Premium support, curated vendors, and clear quotes tailored for Northern Sri Lanka.</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <a href="#" className="px-4 py-2 rounded-xl bg-white border border-[#E5E5E5] text-[#2F2F2F] hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D1B280]">Browse vendors</a>
+              <a href="#" className="px-4 py-2 rounded-xl text-[#2F2F2F] shadow-sm bg-gradient-to-b from-[#FAF9F0] to-white border border-[#E5E5E5] hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D1B280] flex items-center gap-2">How it works <ArrowRight size={16} /></a>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <CheckCircle className="text-[#2F2F2F]" />
-            <div>
-              <p className="text-[#2F2F2F] font-medium">Secure requests</p>
-              <p className="text-[#6C6C6C] text-sm">Direct quotes, clear timelines, local support</p>
-            </div>
+        </div>
+      </section>
+
+      {/* Testimonials on white surface */}
+      <section className="mt-12">
+        <div className="rounded-2xl md:rounded-3xl border border-[#E5E5E5] bg-white p-6 md:p-8 shadow-sm">
+          <h2 className="text-[#2F2F2F] text-2xl md:text-3xl mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>What couples say</h2>
+          <p className="text-[#6C6C6C] mb-6">Stories from Jaffna and beyond</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {testimonials.map((t) => (
+              <figure key={t.name} className="rounded-2xl border border-[#E5E5E5] bg-gradient-to-b from-[#FAF9F0] to-white p-5">
+                <blockquote className="text-[#2F2F2F]">“{t.quote}”</blockquote>
+                <figcaption className="mt-3 text-sm text-[#6C6C6C]">— {t.name}, {t.role}</figcaption>
+              </figure>
+            ))}
           </div>
-          <div className="flex items-center gap-3">
-            <Star className="text-[#2F2F2F]" />
-            <div>
-              <p className="text-[#2F2F2F] font-medium">Community rated</p>
-              <p className="text-[#6C6C6C] text-sm">Reviews from real events across the North</p>
-            </div>
+        </div>
+      </section>
+
+      {/* How it works with alternating background partition */}
+      <section className="mt-12">
+        <div className="rounded-2xl border border-[#E5E5E5] bg-[#FAF9F0] p-6 md:p-8">
+          <h2 className="text-[#2F2F2F] text-2xl md:text-3xl mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>How it works</h2>
+          <p className="text-[#6C6C6C] mb-6">Simple steps to your perfect day</p>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[1,2,3].map((i) => (
+              <div key={i} className="rounded-2xl border border-[#E5E5E5] bg-white p-5">
+                <div className="h-9 w-9 rounded-xl bg-gradient-to-b from-[#E7D7B3] to-[#D1B280] flex items-center justify-center text-[#2F2F2F] font-medium">{i}</div>
+                <h3 className="mt-3 text-[#2F2F2F] font-medium">{i === 1 ? 'Discover vendors' : i === 2 ? 'Request quotes' : 'Book with ease'}</h3>
+                <p className="text-sm text-[#6C6C6C] mt-1">{i === 1 ? 'Browse curated categories across Jaffna and Sri Lanka.' : i === 2 ? 'Share details and compare transparent packages.' : 'Confirm dates, finalize add-ons, and celebrate.'}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="mt-12">
+        <div className="rounded-2xl md:rounded-3xl border border-[#E5E5E5] bg-white p-6 md:p-8 shadow-sm flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+          <div>
+            <h3 className="text-[#2F2F2F] text-xl md:text-2xl" style={{ fontFamily: 'Playfair Display, serif' }}>Bring your vision to life</h3>
+            <p className="text-[#6C6C6C]">Start with a free quote request — we’ll match you to the right vendors.</p>
+          </div>
+          <div className="flex gap-3">
+            <a href="#" className="px-5 py-3 rounded-xl text-[#2F2F2F] shadow-sm bg-gradient-to-b from-[#E7D7B3] to-[#D1B280] hover:from-[#D1B280] hover:to-[#B89554] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D1B280]">Request a quote</a>
+            <a href="#" className="px-5 py-3 rounded-xl bg-white border border-[#E5E5E5] text-[#2F2F2F] hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D1B280]">Explore vendors</a>
           </div>
         </div>
       </section>
