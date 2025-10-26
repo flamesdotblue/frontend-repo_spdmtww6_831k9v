@@ -1,28 +1,25 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import HomeSections from './components/HomeSections';
+import BottomTabBar from './components/BottomTabBar';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-[#FAF9F0] text-[#2F2F2F]">
+      {/* Load fonts (Playfair Display for headings, Inter for body) */}
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap'); body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji'; } h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }`}</style>
 
-export default App
+      {/* Subtle ivory to white background gradient */}
+      <div className="absolute inset-0 -z-10" aria-hidden>
+        <div className="h-full w-full bg-gradient-to-b from-[#FAF9F0] to-white" />
+      </div>
+
+      <Navbar />
+      <main>
+        <Hero />
+        <HomeSections />
+      </main>
+      <BottomTabBar />
+    </div>
+  );
+}
